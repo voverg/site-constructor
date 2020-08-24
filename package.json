@@ -1,0 +1,18 @@
+{
+  "name": "site-constructor",
+  "version": "1.0.0",
+  "description": "This is a site constructor written by html, css and pure javascript.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development"
+  },
+  "author": "Vladimir Petrov <voverg81@mail.ru",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
