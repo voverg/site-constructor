@@ -26,6 +26,7 @@ function block(type='button') {
         <button type="${type}" class="btn btn-create-block">Создать новый блок</button>
         <hr>
 
+        <h4>Базовые настройки</h4>
         <div class="row">
             <label for="columns">Количество колонок</label>
             <input type="number" id="columns" name="columns" class="range" value="1" min="1" max="6">
@@ -39,7 +40,9 @@ function block(type='button') {
             <label for="padding">Внутренний отступ</label>
             <input type="range" id="padding" name="padding" class="range" min="0" max="100" value="0">
         </div>
+        <br><hr>
 
+        <h4>Фон и шрифт</h4>
         <div class="row">
             <label for="background">Цвет фона</label>
             <input type="color" id="background" name="background" class="range" value="#ffffff">
