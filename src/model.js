@@ -4,6 +4,7 @@ import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './classes/bloc
 export const model = [
     new TitleBlock('Это простой конструктор сайтов', {
         tag: 'h1',
+        rowId: 0,
         styles: 'background: darkred; color: #fff; text-align: center; padding: 15px; font-size: 14px;'
     }),
     new ImageBlock(image, {

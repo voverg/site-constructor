@@ -11,15 +11,16 @@ class Block {
     }
 }
 
+// Subclasses
 export class TitleBlock extends Block {
     constructor(value, options) {
         super(value, options);
     }
 
     toHtml() {
-        const {tag, styles} = this.options;
+        const {tag, styles, rowId} = this.options;
         const htmlContent = `<${tag}>${this.value}</${tag}>`;
-        return row(col(htmlContent), styles);
+        return row(col(htmlContent, styles), rowId);
     }
 }
 
@@ -31,7 +32,7 @@ export class ImageBlock extends Block {
     toHtml() {
         const {tag, styles, alt, imageStyles} = this.options;
         const htmlContent = `<img src="${this.value}" alt="${alt}" style="${imageStyles}">`;
-        return row(htmlContent, styles);
+        return row(col(htmlContent, styles));
     }
 }
 
@@ -43,7 +44,7 @@ export class TextBlock extends Block {
     toHtml() {
         const {tag, styles} = this.options;
         const htmlContent = `<${tag}>${this.value}</${tag}>`;
-        return row(col(htmlContent), styles);
+        return row(col(htmlContent, styles));
     }
 }
 
@@ -54,7 +55,7 @@ export class TextColumnBlock extends Block {
 
     toHtml() {
         const {styles} = this.options;
-        const html = this.value.map(item => col(item));
-        return row(html.join(''), styles);
+        const html = this.value.map(item => col(item, styles));
+        return row(html.join(''));
     }
 }
