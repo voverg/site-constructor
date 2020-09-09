@@ -1,4 +1,4 @@
-import { row, col } from '../utils.js';
+import { row, col, css } from '../utils.js';
 
 class Block {
     constructor(value, options) {
@@ -55,7 +55,7 @@ export class TextColumnBlock extends Block {
 
     toHtml() {
         const {styles} = this.options;
-        const html = this.value.map(item => col(item, styles));
+        const html = this.value.map(item => col(item, css(styles)));
         return row(html.join(''));
     }
 }

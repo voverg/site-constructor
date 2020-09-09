@@ -1,5 +1,6 @@
 import image from './assets/zhopa.jpg';
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './classes/blocks.js';
+import {css} from './utils.js';
 
 export const model = [
     new TitleBlock('Это простой конструктор сайтов', {
@@ -18,7 +19,14 @@ export const model = [
             'Выбирайте нужные вам эелементы, вводите текста и увидите изменения прямо на лету',
             'Попробуйте и у вас получится'
         ], {
-            styles: 'background: lightgreen;'
+            styles: {
+                background: 'lightgreen',
+                color: 'blue',
+                'border-width': '2',
+                'border-color': 'black',
+                'border-style': 'solid',
+                padding: '10px'
+            }
     }),
 
     new TextBlock('Vladimir Petrov 2020', {

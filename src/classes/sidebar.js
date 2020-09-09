@@ -1,15 +1,16 @@
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './blocks.js';
 
 export class Sidebar {
-    constructor(selector) {
-        this.$el = document.querySelector(selector);
+    constructor(selector, update) {
+        this.$addEl = document.querySelector(selector);
+        this.update = update;
 
         this.init();
     }
 
     init() {
-        this.$el.addEventListener('click', this.addBlock.bind(this));
-        this.$el.innerHTML = this.template;
+        this.$addEl.addEventListener('click', this.addBlock.bind(this));
+        this.$addEl.innerHTML = this.template;
     }
 
     get template() {
@@ -17,7 +18,26 @@ export class Sidebar {
     }
 
     addBlock(event) {
-// Сюда написать функцию, которая создаёт блок на сайте
+        if(!event.target.classList.contains('btn-create-block')) return;
+        const columns = parseInt(document.querySelector('#columns').value);
+
+        const styles = {};
+        const inputsElems = document.querySelectorAll('input, select');
+        const pixElemsArray = ['border-width', 'margin', 'padding', 'border-radius', 'font-size'];
+        inputsElems.forEach(elem => {
+            if(pixElemsArray.includes(elem.name)) {
+                styles[elem.name] = elem.value + 'px';
+            } else {
+                styles[elem.name] = elem.value;
+            }
+        });
+        delete styles.columns;
+
+        const Constructor = TextColumnBlock;
+
+        const columnsArray = new Array(columns).fill('Кликни сюда, чтобы добавить текст');
+        const newBlock = new Constructor(columnsArray, {styles});
+        this.update(newBlock);
     }
 }
 
@@ -67,8 +87,8 @@ function block(type='button') {
             <input type="range" id="border-radius" name="border-radius" class="range" min="0" max="50" value="0">
         </div>
         <div class="row">
-            <label for="border-type">Тип рамки</label>
-            <select type="select" name="border-type" id="border-type" class="range">
+            <label for="border-style">Тип рамки</label>
+            <select type="select" name="border-style" id="border-style" class="range">
                 <option value="solid" selected>Линия</option>
                 <option value="dushed">Пунктир</option>
                 <option value="dotted">Точки</option>
