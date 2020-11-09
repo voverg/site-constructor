@@ -35,7 +35,7 @@ export class Sidebar {
 
         const Constructor = TextColumnBlock;
 
-        const columnsArray = new Array(columns).fill('Кликни сюда, чтобы добавить текст');
+        const columnsArray = new Array(columns).fill('Двойной клик сюда, чтобы добавить текст');
         const newBlock = new Constructor(columnsArray, {styles});
         this.update(newBlock);
     }
@@ -43,9 +43,6 @@ export class Sidebar {
 
 function block(type='button') {
     return `
-        <button type="${type}" class="btn btn-create-block">Создать новый блок</button>
-        <hr>
-
         <h4>Базовые настройки</h4>
         <div class="row">
             <label for="columns">Количество колонок</label>
@@ -98,5 +95,9 @@ function block(type='button') {
             <label for="border-color">Цвет рамки</label>
             <input type="color" id="border-color" name="border-color" class="range" value="#333333">
         </div>
+        <br><hr>
+
+        <button type="${type}" class="btn btn-create-block">Создать новый блок</button>
+        <button type="${type}" class="btn btn-delete-block">Удалить выделенный блок</button>
     `;
 }

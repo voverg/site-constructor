@@ -10,12 +10,15 @@ a {
 }
 
 #app {
-    display: flex;
+    position: relative;
 }
 
 /*Sidebar*/
 .sidebar {
-    width: 500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
     height: 95vh;
     padding: 10px;
     background-color: #e0ffe0;
@@ -69,14 +72,16 @@ input.range, select.range {
     outline: none;
 }
 
-.btn-create-block {
+.btn-create-block, .btn-delete-block {
     display: block;
-    margin: 0 auto 10px;
+    margin: 10px auto;
 }
 
 /* Content */
 .content {
-    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 200px;
 }
 
 .row {
@@ -87,7 +92,6 @@ input.range, select.range {
 .col-sm {
     flex-grow: 1;
     flex-basis: 100%;
-    padding: 15px 0 15px 15px;
 }
 
 footer {

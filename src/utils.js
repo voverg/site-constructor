@@ -3,7 +3,7 @@ export function row(data, rowId=0) {
 }
 
 export function col(data, styles='') {
-    return `<div class="col-sm" style="${styles}" contenteditable>${data}</div>`;
+    return `<div class="col-sm"><div class="block-content" style="${styles}">${data}</div></div>`;
 }
 
 export function css(styles={}) {
