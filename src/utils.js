@@ -1,3 +1,15 @@
+export function fromLocalStorage() {
+    const data = localStorage.getItem('siteData');
+    if(data) {
+        return JSON.parse(data);
+    }
+    return [];
+}
+
+export function toLocalStorage(data) {
+    localStorage.setItem('siteData', JSON.stringify(data));
+}
+
 export function row(data, rowId=0) {
     return `<div class="row" data-row-id="${rowId}">${data}</div>`;
 }

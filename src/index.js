@@ -3,6 +3,8 @@ import {Site} from './classes/site.js';
 import {Sidebar} from './classes/sidebar.js';
 import './styles/main.css';
 
+console.log(model);
+
 const site = new Site('#site');
 
 const updateCallback = newBlock => {

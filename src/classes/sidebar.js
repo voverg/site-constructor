@@ -1,3 +1,5 @@
+import {toLocalStorage} from '../utils.js'
+import {model} from '../model.js'
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './blocks.js';
 
 export class Sidebar {
@@ -33,11 +35,13 @@ export class Sidebar {
         });
         delete styles.columns;
 
+
         const Constructor = TextColumnBlock;
 
         const columnsArray = new Array(columns).fill('Двойной клик сюда, чтобы добавить текст');
         const newBlock = new Constructor(columnsArray, {styles});
         this.update(newBlock);
+        toLocalStorage(model);
     }
 }
 
