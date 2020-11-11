@@ -2,6 +2,11 @@ import image from './assets/zhopa.jpg';
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './classes/blocks.js';
 import {fromLocalStorage, css} from './utils.js';
 
+
+const data = fromLocalStorage();
+console.log(data);
+export const model = data.map(item => new TextColumnBlock(item.value, item.options));
+
 // export const model = [
 //     new TitleBlock('Это простой конструктор сайтов', {
 //         tag: 'h1',
@@ -34,11 +39,3 @@ import {fromLocalStorage, css} from './utils.js';
 //         styles: 'background: #0d1f1a; color: #ccc; text-align: center;'
 //     })
 // ];
-
-const data = fromLocalStorage();
-export const model = data.map(item => new TextColumnBlock(item.value, item.options));
-// export const model = data.map(function(item) {
-//     return new TextColumnBlock(item.value, item.options);
-// })
-
-

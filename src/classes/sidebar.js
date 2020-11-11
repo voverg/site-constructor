@@ -1,4 +1,4 @@
-import {toLocalStorage} from '../utils.js'
+import {toLocalStorage, getSidebarValues} from '../utils.js'
 import {model} from '../model.js'
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './blocks.js';
 
@@ -11,8 +11,8 @@ export class Sidebar {
     }
 
     init() {
-        this.$addEl.addEventListener('click', this.addBlock.bind(this));
         this.$addEl.innerHTML = this.template;
+        this.$addEl.addEventListener('click', this.addBlock.bind(this));
     }
 
     get template() {
@@ -23,25 +23,13 @@ export class Sidebar {
         if(!event.target.classList.contains('btn-create-block')) return;
         const columns = parseInt(document.querySelector('#columns').value);
 
-        const styles = {};
-        const inputsElems = document.querySelectorAll('input, select');
-        const pixElemsArray = ['border-width', 'margin', 'padding', 'border-radius', 'font-size'];
-        inputsElems.forEach(elem => {
-            if(pixElemsArray.includes(elem.name)) {
-                styles[elem.name] = elem.value + 'px';
-            } else {
-                styles[elem.name] = elem.value;
-            }
-        });
-        delete styles.columns;
-
+        const styles = getSidebarValues();
+        const columnsArray = new Array(columns).fill('Двойной клик сюда, чтобы добавить текст');
+        const rowId = model.length;
 
         const Constructor = TextColumnBlock;
-
-        const columnsArray = new Array(columns).fill('Двойной клик сюда, чтобы добавить текст');
-        const newBlock = new Constructor(columnsArray, {styles});
+        const newBlock = new Constructor(columnsArray, {styles}, rowId);
         this.update(newBlock);
-        toLocalStorage(model);
     }
 }
 

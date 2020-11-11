@@ -19,11 +19,12 @@ a {
     top: 0;
     left: 0;
     width: 200px;
-    height: 95vh;
+    height: 100vh;
     padding: 10px;
     background-color: #e0ffe0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     overflow-y: auto;
+    z-index: 99;
 }
 
 .sidebar h4 {

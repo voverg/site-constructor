@@ -1,9 +1,10 @@
 import { row, col, css } from '../utils.js';
 
 class Block {
-    constructor(value, options) {
+    constructor(value, options, rowId) {
         this.value = value;
         this.options = options;
+        this.rowId = rowId;
     }
 
     toHtml() {
@@ -49,13 +50,13 @@ export class TextBlock extends Block {
 }
 
 export class TextColumnBlock extends Block {
-    constructor(value, options) {
-        super(value, options);
+    constructor(value, options, rowId) {
+        super(value, options, rowId);
     }
 
     toHtml() {
         const {styles} = this.options;
-        const html = this.value.map(item => col(item, css(styles)));
-        return row(html.join(''));
+        const html = this.value.map((item, index) => col(item, css(styles), index));
+        return row(html.join(''), this.rowId);
     }
 }
