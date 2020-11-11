@@ -1,4 +1,4 @@
-import {toLocalStorage} from './utils.js';
+import {toLocalStorage, editBlockContent} from './utils.js';
 import { model } from './model.js';
 import {Site} from './classes/site.js';
 import {Sidebar} from './classes/sidebar.js';
@@ -17,8 +17,13 @@ new Sidebar('#panel', updateCallback);
 
 site.render(model);
 
-document.addEventListener('dblclick', event => {
-    if(event.target.classList.contains('block-content')) {
-        console.log('cat');
-    }
-})
+document.addEventListener('click', event => {
+    if(!event.target.classList.contains('block-content')) return;
+
+    const block = event.target;
+
+    editBlockContent(block);
+});
+
+
+

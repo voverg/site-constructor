@@ -1,3 +1,6 @@
+import { model } from './model.js';
+
+
 export function fromLocalStorage() {
     const data = localStorage.getItem('siteData');
     if(data) {
@@ -9,6 +12,7 @@ export function fromLocalStorage() {
 export function toLocalStorage(data) {
     localStorage.setItem('siteData', JSON.stringify(data));
 }
+
 
 export function row(data, rowId=0) {
     return `<div class="row" data-row-id="${rowId}">${data}</div>`;
@@ -22,6 +26,7 @@ export function css(styles={}) {
     const toString = key => `${key}: ${styles[key]}`;
     return Object.keys(styles).map(toString).join(';');
 }
+
 
 export function getSidebarValues() {
     const styles = {};
@@ -37,4 +42,19 @@ export function getSidebarValues() {
     delete styles.columns;
 
     return styles;
+}
+
+
+export function editBlockContent(block) {
+    block.setAttribute('contenteditable', 'true');
+    block.focus();
+
+    const row = parseInt(block.closest('.row').dataset.rowId);
+    const blockId = parseInt(block.dataset.colId);
+
+    block.addEventListener('blur', () => {
+        const text = block.textContent;
+        model[row].value[blockId] = text;
+        toLocalStorage(model);
+    })
 }

@@ -5,7 +5,7 @@ import {fromLocalStorage, css} from './utils.js';
 
 const data = fromLocalStorage();
 console.log(data);
-export const model = data.map(item => new TextColumnBlock(item.value, item.options));
+export const model = data.map((item, index) => new TextColumnBlock(item.value, item.options, index));
 
 // export const model = [
 //     new TitleBlock('Это простой конструктор сайтов', {
