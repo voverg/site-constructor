@@ -18,7 +18,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 25%;
     height: 100vh;
     padding: 10px;
     background-color: #e0ffe0;
@@ -82,7 +82,8 @@ input.range, select.range {
 .content {
     position: absolute;
     top: 0;
-    left: 200px;
+    left: 25%;
+    width: 75%;
 }
 
 .row {
@@ -94,6 +95,7 @@ input.range, select.range {
     flex-grow: 1;
     flex-basis: 100%;
 }
+
 
 footer {
     display: flex;
