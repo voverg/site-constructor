@@ -31,17 +31,28 @@ export function css(styles={}) {
 export function getSidebarValues() {
     const styles = {};
     const inputsElems = document.querySelectorAll('input, select');
-    const pixElemsArray = ['border-width', 'margin', 'padding', 'border-radius', 'font-size'];
     inputsElems.forEach(elem => {
-        if(pixElemsArray.includes(elem.name)) {
-            styles[elem.name] = elem.value + 'px';
-        } else {
-            styles[elem.name] = elem.value;
-        }
+        styles[elem.name] = elem.value + elem.dataset.unit;
     });
     delete styles.columns;
 
     return styles;
+}
+
+export function setSidebarValues(rowId, colId) {
+    const {styles} = model[rowId].options;
+    const cleanStyles = {};
+    for(let key in styles) {
+        if (styles[key].includes('px')) {
+            cleanStyles[key] = parseInt(styles[key]);
+        } else {
+            cleanStyles[key] = styles[key];
+        }
+    }
+    
+    const inputElems = document.querySelectorAll('input, select');
+    const inputs = Array.from(inputElems).splice(1);
+    inputs.map(item => item.value = cleanStyles[item.name]);
 }
 
 

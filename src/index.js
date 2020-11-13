@@ -1,4 +1,4 @@
-import {toLocalStorage, editBlockContent, getSidebarValues} from './utils.js';
+import {toLocalStorage, editBlockContent, getSidebarValues, setSidebarValues} from './utils.js';
 import { model } from './model.js';
 import {Site} from './classes/site.js';
 import {Sidebar} from './classes/sidebar.js';
@@ -27,6 +27,8 @@ document.querySelector('#site').addEventListener('click', event => {
     rowId = parseInt(block.closest('.row').dataset.rowId);
     colId = parseInt(block.dataset.colId);
 
+    setSidebarValues(rowId, colId);
+
     editBlockContent(block);
 });
 
@@ -47,7 +49,7 @@ function deleteBlock() {
 }
 
 
-document.querySelector('#panel').addEventListener('change', editBlockStyle);
+document.querySelector('#panel').addEventListener('input', editBlockStyle);
 
 function editBlockStyle(event) {
     if (rowId == undefined || colId == undefined) return;
