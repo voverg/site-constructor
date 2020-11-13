@@ -64,15 +64,25 @@ function block(type='button') {
             <label for="font-size">Размер шрифта</label>
             <input type="range" id="font-size" name="font-size" class="range input" min="8" max="50" value="16" data-unit="px">
         </div>
-        <p>Позиционирование</p>
+        <div class="row">
+            <label for="text-align">Позиционирование</label>
+            <select type="select" name="text-align" id="text-align" class="range input" data-unit="">
+                <option value="left" selected>Влево</option>
+                <option value="center">Центр</option>
+                <option value="right">Вправо</option>
+            </select>
+        </div>
+
+        <!-- <p>Позиционирование</p>
             <input type="radio" id="radio-left" name="text-align" class="range input" value="left" data-unit="">
             <input type="radio" id="radio-center" name="text-align" class="range input" value="center" data-unit="" checked>
-            <input type="radio" id="radio-right" name="text-align" class="range input" value="right" data-unit="">
+            <input type="radio" id="radio-right" name="text-align" class="range input" value="left" data-unit="">
         <div class="row">
             <label for="radio-left" class="radio-left">Влево</label>
             <label for="radio-center" class="radio-center">Центр</label>
             <label for="radio-right" class="radio-right">Вправо</label>
-        </div>
+        </div> -->
+
         <br><hr>
 
         <h4>Рамка колонки</h4>

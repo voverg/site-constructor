@@ -35,6 +35,7 @@ export function getSidebarValues() {
         styles[elem.name] = elem.value + elem.dataset.unit;
     });
     delete styles.columns;
+    // console.log(styles);
 
     return styles;
 }
@@ -49,7 +50,7 @@ export function setSidebarValues(rowId, colId) {
             cleanStyles[key] = styles[key];
         }
     }
-    
+
     const inputElems = document.querySelectorAll('input, select');
     const inputs = Array.from(inputElems).splice(1);
     inputs.map(item => item.value = cleanStyles[item.name]);
@@ -64,7 +65,7 @@ export function editBlockContent(block) {
     const blockId = parseInt(block.dataset.colId);
 
     block.addEventListener('blur', () => {
-        const text = block.textContent;
+        const text = block.innerHTML;
         model[row].value[blockId] = text;
         toLocalStorage(model);
     })
