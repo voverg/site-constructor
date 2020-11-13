@@ -41,7 +41,14 @@ function deleteBlock() {
     const sureToDel = confirm(`Точно хотите удалить блок "${block}"?`)
     if (!sureToDel) return;
 
-    model[rowId].value.splice(colId, 1);
+    // console.log(model[rowId].length);
+    console.log(model[rowId].value.length);
+    if (model[rowId].value.length <= 1) {
+        model.splice(rowId, 1);
+    } else {
+        model[rowId].value.splice(colId, 1);
+    }
+
     toLocalStorage(model);
     site.render(model);
 
