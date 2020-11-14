@@ -71,14 +71,15 @@ input.range, select.range {
 
 .btn {
     margin: 5px 0;
+    padding: 5px;
     background-color: #b6f2ff;
     border: 1px solid #88e2e4;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 3px;
 }
 .btn:hover {
-    background-color: #88e2e4;
+    /*background-color: #88e2e4;*/
+    opacity: .8;
 }
 .btn:focus {
     outline: none;
@@ -87,6 +88,11 @@ input.range, select.range {
 .btn-create-block, .btn-delete-block {
     display: block;
     margin: 10px auto;
+}
+
+.btn-delete-block {
+    background: #b94040;
+    color: white;
 }
 
 /* Content */

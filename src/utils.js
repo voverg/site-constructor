@@ -35,7 +35,6 @@ export function getSidebarValues() {
         styles[elem.name] = elem.value + elem.dataset.unit;
     });
     delete styles.columns;
-    // console.log(styles);
 
     return styles;
 }
@@ -65,7 +64,7 @@ export function editBlockContent(block) {
     const blockId = parseInt(block.dataset.colId);
 
     block.addEventListener('blur', () => {
-        const text = block.innerHTML;
+        const text = block.textContent;
         model[row].value[blockId] = text;
         toLocalStorage(model);
     })
