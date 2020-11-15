@@ -14,6 +14,7 @@ const updateCallback = newBlock => {
 
 const  sidebar = new Sidebar('#panel', updateCallback);
 const deleteBlockBtn = document.querySelector('.btn-delete-block');
+const addImgBtn = document.querySelector('.btn-add-img');
 
 site.render(model);
 
@@ -51,6 +52,21 @@ function deleteBlock() {
     site.render(model);
 
     rowId = colId = undefined;
+}
+
+
+addImgBtn.addEventListener('click', addImg);
+
+function addImg() {
+    if (rowId == undefined || colId == undefined) return;
+    const title = 'Введите ссылку на картинку, чтобы добавить её в выделенный блок.'
+    const imgLink = prompt(title);
+    if(imgLink) {
+        let value = `${model[rowId].value[colId]} <img src="${imgLink}">`;
+        model[rowId].value[colId] = value;
+        toLocalStorage(model);
+        site.render(model);
+    }
 }
 
 
