@@ -123,7 +123,7 @@ function block(type='button') {
 
 <button type="${type}" class="btn btn-create-block">Создать новый блок</button>
 <button type="${type}" class="btn btn-add-img">Добавить картинку в блок</button>
-<button type="${type}" class="btn btn-add-link">Добавить ссылку в блок</button>
+<!-- <button type="${type}" class="btn btn-add-link">Добавить ссылку в блок</button> -->
 <button type="${type}" class="btn btn-delete-block">Удалить выделенный блок</button>
     `;
 }

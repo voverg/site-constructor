@@ -144,6 +144,12 @@ input.range, select.range {
     margin: 10px 0;
 }
 
+.content a {
+    text-decoration: none;
+    color: #0bb5b5;
+    font-weight: bold;
+}
+
 
 footer {
     display: flex;

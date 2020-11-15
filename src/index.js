@@ -15,6 +15,7 @@ const updateCallback = newBlock => {
 const  sidebar = new Sidebar('#panel', updateCallback);
 const deleteBlockBtn = document.querySelector('.btn-delete-block');
 const addImgBtn = document.querySelector('.btn-add-img');
+const addLinkBtn = document.querySelector('.btn-add-link');
 
 site.render(model);
 
@@ -32,6 +33,35 @@ document.querySelector('#site').addEventListener('click', event => {
 
     editBlockContent(block);
 });
+
+
+addImgBtn.addEventListener('click', addImg);
+
+function addImg() {
+    if (rowId == undefined || colId == undefined) return;
+    const title = 'Введите ссылку на картинку, чтобы добавить её в выделенный блок.'
+    const imgLink = prompt(title);
+    if(imgLink) {
+        let value = `${model[rowId].value[colId]} <img src="${imgLink}">`;
+        model[rowId].value[colId] = value;
+        toLocalStorage(model);
+        site.render(model);
+    }
+}
+
+// addLinkBtn.addEventListener('click', addLink);
+
+// function addLink() {
+//     if (rowId == undefined || colId == undefined) return;
+//     const title = 'Введите ссылку, которую хотите добавить в выделенный блок.'
+//     const link = prompt(title);
+//     if(link) {
+//         let value = `${model[rowId].value[colId]} <a href="${link}">${link}</a>`;
+//         model[rowId].value[colId] = value;
+//         toLocalStorage(model);
+//         site.render(model);
+//     }
+// }
 
 
 deleteBlockBtn.addEventListener('click', deleteBlock);
@@ -52,21 +82,6 @@ function deleteBlock() {
     site.render(model);
 
     rowId = colId = undefined;
-}
-
-
-addImgBtn.addEventListener('click', addImg);
-
-function addImg() {
-    if (rowId == undefined || colId == undefined) return;
-    const title = 'Введите ссылку на картинку, чтобы добавить её в выделенный блок.'
-    const imgLink = prompt(title);
-    if(imgLink) {
-        let value = `${model[rowId].value[colId]} <img src="${imgLink}">`;
-        model[rowId].value[colId] = value;
-        toLocalStorage(model);
-        site.render(model);
-    }
 }
 
 
