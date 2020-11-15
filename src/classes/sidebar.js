@@ -39,6 +39,10 @@ export class Sidebar {
 
 function block(type='button') {
     return `
+<a href="#" class="burger-menu__button">
+    <span class="burger-menu__lines"></span>
+</a>
+
 <div class="Settings">
     <div class="Block" id="Base-Settings">
         <h4>Базовые настройки</h4>

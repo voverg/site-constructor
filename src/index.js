@@ -3,6 +3,8 @@ import { model } from './model.js';
 import {Site} from './classes/site.js';
 import {Sidebar} from './classes/sidebar.js';
 import './styles/main.css';
+import './styles/burger.css';
+// import './burger.js';
 
 const site = new Site('#site');
 
@@ -98,6 +100,26 @@ function editBlockStyle(event) {
     toLocalStorage(model);
     site.render(model);
 }
+
+
+// Burger menu
+const body = document.querySelector('body');
+const burgerMenu = document.querySelector('.burger-menu');
+const openCloseBurgerBtn = burgerMenu.querySelector('.burger-menu__button');
+const overlay = burgerMenu.querySelector('.burger-menu__overlay');
+
+function toggleMenu() {
+    burgerMenu.classList.toggle('burger-menu_active');
+    body.classList.toggle('hidden');
+}
+
+// Burger menu
+openCloseBurgerBtn.addEventListener('click', event => {
+    event.preventDefault();
+    toggleMenu();
+});
+
+// overlay.addEventListener('click', toggleMenu);
 
 
 
