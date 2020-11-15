@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 a {
@@ -14,24 +14,43 @@ a {
 }
 
 /*Sidebar*/
+
+.Block {
+    padding: 10px;
+    background-color: #F0F0F0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    overflow: hidden;
+    height: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
 .sidebar {
+    display: block;
     position: fixed;
     top: 0;
+    border-radius: 0 15px 15px 0;
     left: 0;
-    width: 25%;
-    height: 100vh;
-    padding: 10px;
-    background-color: #e0ffe0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    margin-left: auto;
+    margin-top: auto;
+    width: 300px;
+    /* padding: 20px; */
+    background-color: #FFFFFF;
     overflow-y: auto;
+    padding: 20px;
     z-index: 99;
 }
 
 .sidebar h4 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
-    color: #555;
-    margin: 5px auto;
+    color: #000000;
+    margin: 10px auto;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .sidebar p {
@@ -47,7 +66,6 @@ label {
     padding-top: 9px;
     font-size: 0.8rem;
     color: #555;
-    cursor: pointer;
 }
 .radio-left, .radio-center, .radio-right {
     flex-grow: 1;
@@ -57,9 +75,9 @@ label {
 input, select {
     width: 100%;
     margin: 5px 0 0 0;
-    padding: 3px 5px;
-    border: 1px solid #88e2e4;
-    border-radius: 3px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 10px;
 }
 input:focus {
     outline: none;
@@ -71,10 +89,10 @@ input.range, select.range {
 
 .btn {
     margin: 5px 0;
-    padding: 5px;
-    background-color: #b6f2ff;
-    border: 1px solid #88e2e4;
-    border-radius: 5px;
+    padding: 8px;
+    background-color: #d3f7ff;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
 }
 .btn:hover {
@@ -98,14 +116,21 @@ input.range, select.range {
 /* Content */
 .content {
     position: absolute;
-    top: 0;
-    left: 25%;
-    width: 75%;
+    top: 20px;
+    left: 320px;
+    width: calc(100vw - 340px);
+    height: calc(100vh - 40px);
+    overflow: scroll;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
 }
 
 .row {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .col-sm {
@@ -128,4 +153,9 @@ footer a {
 }
 footer a:hover {
     color: orange;
+}
+
+.block-content:focus {
+    border-width: 1px !important;
+    border-color: #000000 !important;
 }

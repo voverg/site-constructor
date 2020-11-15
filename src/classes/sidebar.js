@@ -35,23 +35,26 @@ export class Sidebar {
 
 function block(type='button') {
     return `
-        <h4>Базовые настройки</h4>
+    <div class="Settings">
+    <div class="Block" id="Base-Settings">
+        <h4 onclick='document.getElementById("Base-Settings").style.height === "auto" ? document.getElementById("Base-Settings").style.height = "50px" : document.getElementById("Base-Settings").style.height = "auto"'>Базовые настройки</h4>
         <div class="row">
             <label for="columns">Количество колонок</label>
             <input type="number" id="columns" name="columns" class="range input" value="1" min="1" max="6" data-unit="">
         </div>
-
         <div class="row">
             <label for="margin">Внешний отступ</label>
-            <input type="number" id="margin" name="margin" class="range input" min="0" max="100" step="5" value="0" data-unit="px">
+            <input type="number" id="margin" name="margin" class="range input" min="0" max="100" step="5" value="0"
+                data-unit="px">
         </div>
         <div class="row">
             <label for="padding">Внутренний отступ</label>
-            <input type="number" id="padding" name="padding" class="range input" min="0" max="100" step="5" value="0" data-unit="px">
+            <input type="number" id="padding" name="padding" class="range input" min="0" max="100" step="5" value="0"
+                data-unit="px">
         </div>
-        <br><hr>
-
-        <h4>Фон и шрифт</h4>
+    </div>
+    <div class="Block" id="Background-Font">
+        <h4 onclick='document.getElementById("Background-Font").style.height === "auto" ? document.getElementById("Background-Font").style.height = "50px" : document.getElementById("Background-Font").style.height = "auto"'>Фон и шрифт</h4>
         <div class="row">
             <label for="background">Цвет фона</label>
             <input type="color" id="background" name="background" class="range input" value="#ffffff" data-unit="">
@@ -62,7 +65,8 @@ function block(type='button') {
         </div>
         <div class="row">
             <label for="font-size">Размер шрифта</label>
-            <input type="range" id="font-size" name="font-size" class="range input" min="8" max="50" value="16" data-unit="px">
+            <input type="range" id="font-size" name="font-size" class="range input" min="8" max="50" value="16"
+                data-unit="px">
         </div>
         <div class="row">
             <label for="text-align">Позиционирование</label>
@@ -72,27 +76,30 @@ function block(type='button') {
                 <option value="right">Вправо</option>
             </select>
         </div>
+    </div>
+    <!-- <div class="Block" id="Position">
+    <p onclick='document.getElementById("Position").style.height === "auto" ? document.getElementById("Position").style.height = "50px" : document.getElementById("Position").style.height = "auto"'>Позиционирование</p>
+    <input type="radio" id="radio-left" name="text-align" class="range input" value="left" data-unit="">
+    <input type="radio" id="radio-center" name="text-align" class="range input" value="center" data-unit="" checked>
+    <input type="radio" id="radio-right" name="text-align" class="range input" value="left" data-unit="">
+<div class="row">
+    <label for="radio-left" class="radio-left">Влево</label>
+    <label for="radio-center" class="radio-center">Центр</label>
+    <label for="radio-right" class="radio-right">Вправо</label>
+</div> 
+</div> -->
 
-        <!-- <p>Позиционирование</p>
-            <input type="radio" id="radio-left" name="text-align" class="range input" value="left" data-unit="">
-            <input type="radio" id="radio-center" name="text-align" class="range input" value="center" data-unit="" checked>
-            <input type="radio" id="radio-right" name="text-align" class="range input" value="left" data-unit="">
-        <div class="row">
-            <label for="radio-left" class="radio-left">Влево</label>
-            <label for="radio-center" class="radio-center">Центр</label>
-            <label for="radio-right" class="radio-right">Вправо</label>
-        </div> -->
-
-        <br><hr>
-
-        <h4>Рамка колонки</h4>
+    <div class="Block" id="Row-Border">
+        <h4 onclick='document.getElementById("Row-Border").style.height === "auto" ? document.getElementById("Row-Border").style.height = "50px" : document.getElementById("Row-Border").style.height = "auto"'>Рамка колонки</h4>
         <div class="row">
             <label for="border-width">Ширина рамки</label>
-            <input type="range" id="border-width" name="border-width" class="range input" min="0" max="10" value="0" data-unit="px">
+            <input type="range" id="border-width" name="border-width" class="range input" min="0" max="10" value="0"
+                data-unit="px">
         </div>
         <div class="row">
             <label for="border-radius">Радиус скругления (px)</label>
-            <input type="range" id="border-radius" name="border-radius" class="range input" min="0" max="50" value="0" data-unit="px">
+            <input type="range" id="border-radius" name="border-radius" class="range input" min="0" max="50" value="0"
+                data-unit="px">
         </div>
         <div class="row">
             <label for="border-style">Тип рамки</label>
@@ -106,7 +113,11 @@ function block(type='button') {
             <label for="border-color">Цвет рамки</label>
             <input type="color" id="border-color" name="border-color" class="range input" value="#333333" data-unit="">
         </div>
-        <br><hr>
+    </div>
+
+
+
+</div>
 
         <button type="${type}" class="btn btn-create-block">Создать новый блок</button>
         <button type="${type}" class="btn btn-delete-block">Удалить выделенный блок</button>
